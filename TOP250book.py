@@ -12,7 +12,7 @@ with open('data.csv','w') as csvfile:
                 'Host':'book.douban.com',
                 'User-agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:58.0) Gecko/20100101 Firefox/58.0',
         }
-        data = requests.get(url).content.decode('utf-8')
+        data = requests.get(url,headers=headers).content.decode('utf-8')
         soup = BeautifulSoup(data,"html.parser")
         all_tables = BeautifulSoup(data,"html.parser").find('div',  class_='indent').find_all('table')
         for table in all_tables:
