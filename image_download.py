@@ -5,7 +5,7 @@ from lxml import etree
 
 def get_image(image_url,u):
     image_url = image_url.replace("['","").replace("']","")
-    Rq = request.Request(image_url)
+    Rq = request.Request(image_url,headers=Headers)
     Rs = request.urlopen(Rq)
     get_img = Rs.read()
     with open('D:\\pic\\'+'%s.jpg'% u,'wb') as fp:
